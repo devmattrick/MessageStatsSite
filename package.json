@@ -5,11 +5,13 @@
   "main": "gulp dist",
   "author": "mattrick",
   "license": "MIT",
+  "repository": "https://github.com/devmattrick/MessageStatsSite",
   "devDependencies": {
     "browser-sync": "^2.15.0",
     "glob": "^7.0.6",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.12",
+    "gulp-file-include": "^0.14.0",
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^3.0.3",
     "gulp-load-plugins": "^1.2.4",

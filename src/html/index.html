@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Message Statistics</title>
+        <meta name="description" content="View statistics for your Telegram chats!">
+
+        <link rel="stylesheet" href="css/app.css">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            google.charts.load('43', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Hour', 'Active Users'],
+                    ['0',     1000         ],
+                    ['1',     1170         ],
+                    ['2',     660          ],
+                    ['3',     1030         ],
+                    ['4',     2000         ],
+                    ['5',     3170         ],
+                    ['6',     5660         ],
+                    ['7',     6030         ],
+                    ['8',     4000         ],
+                    ['9',     2170         ],
+                    ['10',    3660         ],
+                    ['11',    7030         ],
+                    ['12',    4000         ],
+                    ['13',    2170         ],
+                    ['14',    2660         ],
+                    ['15',    2030         ],
+                    ['16',    4000         ],
+                    ['17',    5170         ],
+                    ['18',    6660         ],
+                    ['19',    3030         ],
+                    ['20',    4000         ],
+                    ['21',    5170         ],
+                    ['22',    5660         ],
+                    ['23',    4030         ]
+                ]);
+
+                var options = {
+                    legend: 'none',
+                    colors: ["#54A9EB"],
+                    vAxis: {
+                        gridlines: {
+                            color: '#DDD'
+                        },
+                        baselineColor: '#DDD',
+                        textStyle:{color: '#909090', fontName: 'Open Sans'}
+                    },
+                    hAxis: {
+                        textStyle:{color: '#909090', fontName: 'Open Sans'},
+                        baselineColor: '#DDD'
+                    },
+                    animation:{
+                        duration: 400,
+                        easing: 'out',
+                        startup: true
+                    },
+                    tooltip: {isHtml: true}
+                };
+
+                var chart = new google.visualization.ColumnChart(document.getElementById('activeUsers'));
+
+                chart.draw(data, options);
+
+                function buildHTMLTooltip(hour, activeUsers) {
+                    return '<div class="graph-tooltip">' + hour + ':00 - ' + activeUsers + ' Users</div>';
+                }
+            }
+        </script>
+    </head>
+    <body id="index">
+        <div class="jumbotron">
+            <div class="container">
+                <img class="jumbotron-logo" src="img/logo.svg">
+                <h1>Message Statistics</h1>
+                <h3>Keep track of your Telegram conversations.</h3>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="column-inner">
+                        <h1 class="text-center">Get Started</h1>
+                        <p class="lead">
+                            Getting started with Message Statistics is easy! Just add
+                            <a href="https://telegram.me/MessageStatisticsBot">@MessageStatisticsBot</a> to any group chat
+                            on Telegram and we'll take care of the rest!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="column-inner text-center">
+                        <h1 class="text-center">Today's Usage Stats</h1>
+                        <div class="statistics">
+                            <div class="statistic">
+                                <div class="value">
+                                    2,000
+                                </div>
+                                <div class="name">
+                                    Active Groups
+                                </div>
+                            </div>
+                            <div class="statistic">
+                                <div class="value">
+                                    50,000
+                                </div>
+                                <div class="name">
+                                    Active Users
+                                </div>
+                            </div>
+                            <div class="statistic">
+                                <div class="value">
+                                    100,000
+                                </div>
+                                <div class="name">
+                                    Messages
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="total-usage">
+                <h1 class="text-center">Hourly Usage Statistics</h1>
+                <div id="activeUsers"></div>
+            </div>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

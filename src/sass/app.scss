@@ -2,4 +2,12 @@
 @import "variables";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
+/* Fonts */
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400';
+
 /* Custom Components */
+@import "global";
+@import "statistic";
+
+/* Page Styles */
+@import "index";

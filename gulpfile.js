@@ -9,18 +9,18 @@ var prod = false;
 var output = "dist/";
 
 var resources = {
-    sass: "src/sass/app.scss",
+    sass: "src/sass/**/*.scss",
     js: [
         "bower_components/jquery/dist/jquery.min.js",
         "bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js",
         "src/js/**/*.js"
     ],
-    html: glob.sync('src/*.html'),
+    html: glob.sync('src/html/*.html'),
     img: "src/img/**"
 };
 
 gulp.task("sass", function() {
-    gulp.src(resources.sass)
+    gulp.src("src/sass/app.scss")
         .pipe(plugins.sass())
         .pipe(plugins.if(prod, plugins.cleanCss({compatibility: 'ie8'})))
         .pipe(plugins.if(prod, plugins.uncss({html: resources.html})))
@@ -37,8 +37,8 @@ gulp.task("js", function() {
 
 gulp.task("html", function () {
    gulp.src(resources.html)
-       .pipe(gulp.dest(output))
-       .pipe(plugins.if(!prod, reload({stream: true})));
+       .pipe(plugins.if(!prod, reload({stream: true})))
+       .pipe(gulp.dest(output));
 });
 
 gulp.task("img", function () {
@@ -68,4 +68,4 @@ gulp.task("prod", function () {
 
 gulp.task("dist", ["prod", "default"]);
 gulp.task("dev", ["default", "watch", "sync"]);
-gulp.task("default", ["sass", "js", "html"]);
+gulp.task("default", ["sass", "js", "html", "img"]);
