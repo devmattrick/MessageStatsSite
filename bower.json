@@ -1,0 +1,21 @@
+{
+  "name": "messagestatssite",
+  "description": "A website frontend for @MessageStatsBot on Telegram.",
+  "main": "gulp dist",
+  "authors": [
+    "mattrick"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7"
+  }
+}
